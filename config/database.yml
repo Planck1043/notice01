@@ -1,0 +1,15 @@
+development:
+  adapter: mysql2
+  database: notice01_development
+  username: root
+  password:
+  host: localhost
+
+
+
+production:
+  adapter: mysql2
+  database: rails05
+  username: root
+  password:
+  host: localhost
