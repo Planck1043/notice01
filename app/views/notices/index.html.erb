@@ -1,0 +1,26 @@
+<h1> 通知后台 </h1>
+<p>
+<%= link_to "新建通告", new_notice_path %>
+</p>
+
+<table class="table table-bordered table-hover">
+  <tr class="text-info">
+    <th>标题</th>
+    <th>通知类型</th>
+    <th>通知状态</th>
+    <th>操作</th>
+  </tr>
+
+  <% @notices.each do |f| %>
+    <tr>
+      <td><%= link_to "#{f.title}", notice_path(f) %></td>
+      <td><%= f.class_type %></td>
+      <td><%= f.notice_state %></td>
+      <td>
+        <%= link_to "编辑", edit_notice_path(f) %>
+        <%= link_to "删除", notice_path(f),
+            method: :delete, data: { confirm: "确认删除？" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

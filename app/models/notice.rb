@@ -1,2 +1,2 @@
-class Notice < ApplicationRecord#ActiveRecord::Base
+class Notice < ApplicationRecord
 end
