@@ -19,6 +19,7 @@ class NoticesController < ApplicationController
 
   def show
     @notice = Notice.find(params[:id])
+    @posts = @notice.posts
   end
 
 
