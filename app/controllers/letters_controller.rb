@@ -6,4 +6,11 @@ class LettersController < ApplicationController
   def show
     @letter = Letter.find(params[:id])
   end
+
+  def destroy
+    @letter = Letter.find(params[:id])
+    @letter.destroy
+
+    redirect_to letters_path
+  end
 end

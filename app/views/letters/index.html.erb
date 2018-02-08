@@ -15,8 +15,8 @@
       <td><%= link_to "#{letter.letter_text.title}", letter_path(letter) %></td>
       <td><%= letter.letter_text.text %></td>
       <td>
-        <%#= link_to "编辑", edit_notice_path(f) %>
-        <%#= link_to "删除", notice_path(f),
+        <%#= link_to "编辑", edit_letter_text_path(letter) %>
+        <%= link_to "删除", letter_path(letter),
             method: :delete, data: { confirm: "确认删除？" } %>
       </td>
     </tr>
