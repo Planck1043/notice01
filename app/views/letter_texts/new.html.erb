@@ -1,0 +1,28 @@
+<div class="col-md-4 col-md-offset-4">
+
+  <h1> 新建邮件 </h1>
+
+  <hr>
+  <%= form_for @letter_text do |f| %>
+    <p>
+      <%= f.label "收件人" %>
+      <%#= f.select :letter_state, options_for_select([["未审核","未审核"],["审核中 ","审核中"],["审核通过","审核通过"],["准备发布","准备发布"],["已发布","已发布"],["下架","下架"]])%>
+    </p>
+
+    <p>
+      <%= f.label "标题" %>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label "内容" %>
+      <%= f.text_area :text %>
+    </p>
+
+    <p>
+    <%= f.submit "提交" %>
+    </p>
+
+    <%= link_to "返回", letter_texts_path %>
+  <% end %>
+</div>
