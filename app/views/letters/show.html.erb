@@ -8,5 +8,12 @@
 <div class="center">
   <div class="col-md-4 col-md-offset-4 text-center">
     <%= @letter.letter_text.text %>
+    <p>
+      发送者: <%= @letter.send.try(:name) %>
+    </p>
+
+    <p>
+      接收者: <%= @letter.rec.name %>
+    </p>
   </div>
 </div>

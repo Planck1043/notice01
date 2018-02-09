@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :notices do
     resources :posts
   end
+  resources :notice_items
 
   resources :letters
   resources :letter_texts

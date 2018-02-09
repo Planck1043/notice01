@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">公司后台系统</a>
+            <!-- href="#"是点击按钮跳转路径，将符号"#"替换为相对网址路径，例如"/"表示首页路径 -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                  <li><%#= link_to("注册", new_user_path) %> </li>
+                  <!-- 在 rails 中 "link_to" 是 "<a>" 的封装 -->
+                  <li><%= link_to "通知", notices_path %></li>
+                  <li><%= link_to "站内信", letters_path %></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

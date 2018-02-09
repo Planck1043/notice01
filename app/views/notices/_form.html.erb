@@ -1,5 +1,10 @@
 <%= form_for @notice do |f| %>
   <p>
+    <%= f.label "部门分类" %>
+    <%= f.select :notice_item_id, options_for_select(NoticeItem.all.collect{|a| [a.department, a.id]})%>
+  </p>
+
+  <p>
     <%= f.label "标题" %>
     <%= f.text_field :title %>
   </p>
@@ -14,7 +19,6 @@
     <%= f.select :class_type, options_for_select([["全员通告","全员通告"],["部门通告","部门通告"]])%>
   </p>
 
-
   <p>
     <%= f.label " 通知状态" %>
     <%= f.select :notice_state, options_for_select([["未审核","未审核"],["审核中 ","审核中"],["审核通过","审核通过"],["准备发布","准备发布"],["已发布","已发布"],["下架","下架"]])%>
@@ -24,3 +28,5 @@
   <%= f.submit "提交" %>
   </p>
 <% end %>
+
+<%= link_to "返回", notices_path %>

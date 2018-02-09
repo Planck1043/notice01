@@ -17,12 +17,17 @@
       <!-- <% users_array = User.all.map { |user| [user.name, user.id] } %>
       <%= options_for_select(users_array) %> -->
 
-      <%= options_from_collection_for_select(User.all, :id, :name) %>
+      <%#= options_from_collection_for_select(User.all, :id, :name) %>
       <%#= collection_select(:person, :city_id, City.all, :id, :name) %>
-      <%= collection_select(:user, :rec_id01, User.all, :id, :name) %>
+      <%#= collection_select(:user, :rec_id01, User.all, :id, :name) %>
 
 
-      <%= select_tag :rec_user, options_for_select(User.all.collect{|a| [a.name, a.id]})%>
+      <%= select_tag :rec_id, options_for_select(User.all.collect{|a| [a.name, a.id]})%>
+    </p>
+
+    <p>
+      <%= f.label "发件人" %>
+      <%= select_tag :send_id, options_for_select(User.all.collect{|a| [a.name, a.id]})%>
     </p>
 
     <p>

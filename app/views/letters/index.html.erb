@@ -6,14 +6,16 @@
 <table class="table table-bordered table-hover">
   <tr class="text-info">
     <th>标题</th>
-    <th>内容</th>
+    <th>发件人</th>
+    <th>收件人</th>
     <th>操作</th>
   </tr>
 
   <% @letters.each do |letter| %>
     <tr>
       <td><%= link_to "#{letter.letter_text.title}", letter_path(letter) %></td>
-      <td><%= letter.letter_text.text %></td>
+      <td><%= letter.send.try(:name) %></td>
+      <td><%= letter.rec.name %></td>
       <td>
         <%#= link_to "编辑", edit_letter_text_path(letter) %>
         <%= link_to "删除", letter_path(letter),

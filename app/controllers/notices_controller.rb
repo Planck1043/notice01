@@ -22,7 +22,6 @@ class NoticesController < ApplicationController
     @posts = @notice.posts
   end
 
-
   def edit
     @notice = Notice.find(params[:id])
   end
@@ -46,6 +45,6 @@ class NoticesController < ApplicationController
   private
 
   def notice_params
-    params.require(:notice).permit(:title, :text, :notice_state, :class_type)
+    params.require(:notice).permit(:title, :text, :notice_item_id,:notice_state, :class_type)
   end
 end
