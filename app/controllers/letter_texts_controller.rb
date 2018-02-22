@@ -6,6 +6,7 @@ class LetterTextsController < ApplicationController
   end
 
   def create
+    binding.pry
     @letter = Letter.new
     @letter_text = LetterText.new(letter_text_params)
     p params,">>"*100

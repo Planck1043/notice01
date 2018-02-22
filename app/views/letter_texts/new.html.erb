@@ -5,29 +5,16 @@
   <hr>
 
   <%= form_for @letter_text do |f| %>
-    <!-- <p>
-      <% User.all.each do |u| %>
-        <input type="checkbox" value="<%= u.id %>">
-        <%= u.name %>
-      <% end %>
-    </p> -->
-
     <p>
       <%= f.label "收件人" %>
-      <!-- <% users_array = User.all.map { |user| [user.name, user.id] } %>
-      <%= options_for_select(users_array) %> -->
-
-      <%#= options_from_collection_for_select(User.all, :id, :name) %>
-      <%#= collection_select(:person, :city_id, City.all, :id, :name) %>
-      <%#= collection_select(:user, :rec_id01, User.all, :id, :name) %>
-
-
-      <%= select_tag :rec_id, options_for_select(User.all.collect{|a| [a.name, a.id]})%>
+      <!-- 用户.多选框 -->
+      <%= select_tag 'rec_id[]', options_for_select(User.all.collect{|a| [a.name, a.id]}), class: "form-control", multiple: "multiple", class: "multiselect-max"%>
     </p>
 
     <p>
       <%= f.label "发件人" %>
-      <%= select_tag :send_id, options_for_select(User.all.collect{|a| [a.name, a.id]})%>
+      <!-- 用户.单选框 -->
+      <%= select_tag :send_id, options_for_select(User.all.collect{|a| [a.name, a.id]}), class: "form-control"%>
     </p>
 
     <p>
@@ -47,3 +34,10 @@
     <%= link_to "返回", letter_texts_path %>
   <% end %>
 </div>
+
+<script>
+// 多选框样式
+$("#rec_id").select2({
+    theme: "bootstrap"
+})
+</script>
