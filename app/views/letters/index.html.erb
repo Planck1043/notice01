@@ -17,7 +17,6 @@
       <td><%= letter.sender.try(:name) %></td>
       <td><%= letter.recer.name %></td>
       <td>
-        <%#= link_to "编辑", edit_letter_text_path(letter) %>
         <%= link_to "删除", letter_path(letter),
             method: :delete, data: { confirm: "确认删除？" } %>
       </td>
