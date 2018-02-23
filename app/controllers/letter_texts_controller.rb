@@ -6,16 +6,12 @@ class LetterTextsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @letter = Letter.new
     @letter_text = LetterText.new(letter_text_params)
-    p params,">>"*100
+    @letter_rec = Array.new
+    @letter_rec = params[:rec_id]
+    
     if @letter_text.save
-      @letter.letter_text_id = @letter_text.id
-      @letter.rec_id = params[:rec_id]
-      @letter.send_id = params[:send_id]
-      @letter.save
-
+      @letter_text.letter_send(@letter_rec, params[:send_id])
       redirect_to letters_path
     else
       render "new"
