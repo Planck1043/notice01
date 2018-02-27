@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root 'notices#index'
   resources :notices do
     resources :posts
+    resources :censors
   end
   resources :notice_items
+  resources :users
 
   resources :letters
   resources :letter_texts

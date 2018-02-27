@@ -28,7 +28,8 @@ class NoticesController < ApplicationController
 
   def update
     @notice = Notice.find(params[:id])
-    if @notice.save
+
+    if @notice.update(notice_params)
       redirect_to @notice
     else
       render "edit"
@@ -38,6 +39,16 @@ class NoticesController < ApplicationController
   def destroy
     @notice = Notice.find(params[:id])
     @notice.destroy
+
+    redirect_to notices_path
+  end
+
+  def censor
+    @notice = Notice.find(params[:id])
+  end
+
+  def censor_submit
+    @notice = Notice.find(params[:id])
 
     redirect_to notices_path
   end

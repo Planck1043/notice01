@@ -2,7 +2,9 @@ class LetterTextsController < ApplicationController
   def new
     @letter = Letter.new
     @letter_text = LetterText.new
-    @users = User.all
+    # users = RestClient.get 'http://192.168.1.251:3000/api/v1/users/1', {accept: :json}
+    # k = JSON.parse(users)
+    # @u = k["user"]
   end
 
   def create
