@@ -1,0 +1,40 @@
+<h1 class="text-center"> 通告审核 </h1>
+
+<hr>
+
+<h3 class="text-center"> <%= @notice.title %> </h1>
+
+<div class="col-md-4 col-md-offset-4 text-center">
+  <%= @notice.text %>
+  </p>
+  <%= @notice.notice_item.department %>
+  </p>
+  <%= link_to "返回", censors_path  %>
+</div>
+
+<h2 class="col-md-4 col-md-offset-4 text-center">修改建议</h2>
+
+<div class="col-md-4 col-md-offset-4 text-center">
+  <p>
+    <%= link_to "#{@notice.notice_state}", censor_success_censors_path(@notice), method: :post , :class => "btn btn-xs btn-default" %>
+  </p>
+  <% @censors.each do |f| %>
+    <p>
+      <%= f.text %>
+    </p>
+  <% end %>
+
+  <%= form_for @censor do |f| %>
+
+    <!-- 隐藏域.前端页面不显示@notice.id -->
+    <input type=hidden name=notice_id value=<%= @notice.id %> >
+
+    <p>
+      <%= f.text_area :text %>
+    </p>
+
+    <p>
+      <%= f.submit "submit" %>
+    </p>
+  <% end %>
+</div>

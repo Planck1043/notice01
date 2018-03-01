@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   require 'rubygems'
 
   def index
-    @u
+    users = RestClient.get 'http://192.168.1.251:3000/api/v1/users', {accept: :json}
+    @users = JSON.parse(users)
   end
 end

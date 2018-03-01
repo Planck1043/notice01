@@ -43,16 +43,6 @@ class NoticesController < ApplicationController
     redirect_to notices_path
   end
 
-  def censor
-    @notice = Notice.find(params[:id])
-  end
-
-  def censor_submit
-    @notice = Notice.find(params[:id])
-
-    redirect_to notices_path
-  end
-
   private
 
   def notice_params

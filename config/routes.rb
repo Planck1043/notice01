@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
   root 'notices#index'
+  resources :users
+  resources :notice_items
+
   resources :notices do
     resources :posts
-    resources :censors
   end
-  resources :notice_items
-  resources :users
+
+  resources :censors do
+    collection do
+      post :censor_success
+    end
+  end
+
 
   resources :letters
   resources :letter_texts

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226080205) do
+ActiveRecord::Schema.define(version: 20180228141545) do
+
+  create_table "censors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "text"
+    t.integer "notice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "letter_texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -46,6 +53,8 @@ ActiveRecord::Schema.define(version: 20180226080205) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "notice_item_id"
+    t.string "inspection", default: "未审核"
+    t.integer "modify_number", default: 0
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

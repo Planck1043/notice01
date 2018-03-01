@@ -5,8 +5,10 @@
     <th>编号</th>
     <th>姓名</th>
   </tr>
+  <% @users.each do |f| %>
     <tr>
-      <td><%#= %></td>
-      <td><%= @u["user"]["id"] %></td>
+      <td><%= f["coding"] %></td>
+      <td><%= link_to "f["name"]", "#" %></td>
     </tr>
+  <% end %>
 </table>

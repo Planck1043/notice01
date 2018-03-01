@@ -22,21 +22,22 @@
 
   <% if @notice.notice_state == "已发布" %>
 
-  <div class="col-md-4 col-md-offset-4 text-center">
-    <%= link_to "评论", new_notice_post_path(@notice) %>
-  </div>
+    <div class="col-md-4 col-md-offset-4 text-center">
+      <%= link_to "评论", new_notice_post_path(@notice) %>
+    </div>
 
-  <div class="col-md-4 col-md-offset-4 text-center">
-    <h2>评论</h2>
-  </div>
+    <div class="col-md-4 col-md-offset-4 text-center">
+      <h2>评论</h2>
+    </div>
 
-  <hr>
+    <hr>
 
-  <div class="col-md-4 col-md-offset-4 text-center">
-    <% @posts.each do |post| %>
-      <%= post.text %>
-    <% end %>
-  </div>
+    <div class="col-md-4 col-md-offset-4 text-center">
+      <% @posts.each do |post| %>
+        <%= post.text %>
+      <% end %>
+    </div>
+
   <% else%>
   <% end %>
 </div>
