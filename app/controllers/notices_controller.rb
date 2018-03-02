@@ -19,7 +19,7 @@ class NoticesController < ApplicationController
 
   def show
     @notice = Notice.find(params[:id])
-    @posts = @notice.posts
+    @posts = @notice.posts.paginate(:page => params[:page], :per_page => 10)
   end
 
   def edit

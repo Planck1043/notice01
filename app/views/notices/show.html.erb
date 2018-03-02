@@ -24,9 +24,19 @@
 
   <hr>
 
+  <table class="table table-striped">
   <% if @notice.notice_state == "已发布" %>
     <% @posts.each do |post| %>
+    <p>
       <%= post.text %>
+      <%= link_to "删除", notice_post_path(post),
+          method: :delete, data: { confirm: "确认删除？" } %>
+    </p>
     <% end %>
   <% end %>
+  </table>
+
+  <div class="text-center">
+    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>

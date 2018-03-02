@@ -16,6 +16,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:notice_id])
+    @notice = @post.notice
+    @post.destroy
+
+    redirect_to notice_path(@notice)
+  end
+
   private
 
   def post_params

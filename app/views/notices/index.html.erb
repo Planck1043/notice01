@@ -21,7 +21,10 @@
       <td><%= link_to "#{f.title}", notice_path(f) %></td>
       <td><%= f.notice_item.department %></td>
       <td><%= f.class_type %></td>
-      <td><%= link_to "#{f.notice_state}", notice_update_notices_path(f), method: :post , :class => "btn btn-xs btn-default" %></td>
+      <td><%= link_to "#{f.notice_state}", notice_update_notices_path(f),
+            method: :post, :class => "btn btn-xs btn-default"
+            # data: { confirm: "确认更新？" },
+             %></td>
       <td>
         <%= link_to "编辑", edit_notice_path(f) %>
         <%= link_to "删除", notice_path(f),
