@@ -44,19 +44,15 @@ class NoticesController < ApplicationController
   end
 
   def notice_update
-
-  end
-
-  def method_name
-    @book = Book.find(params[:id])
-    if @book.book_state == "上架"
-      @book.update(book_state: "下架")
-      flash[:error] = "下架成功"
-    else
-      @book.update(book_state: "上架")
-      flash[:error] = "上架成功"
+    @notice = Notice.find(params[:format])
+    if @notice.notice_state == "审核通过"
+      @notice.update(notice_state: "准备发布")
+    elsif @notice.notice_state == "准备发布"
+      @notice.update(notice_state: "已发布")
+    elsif @notice.notice_state == "已发布"
+      @notice.update(notice_state: "下架")
     end
-    redirect_to :back
+    redirect_to notices_path
   end
 
   private

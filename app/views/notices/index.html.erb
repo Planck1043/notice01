@@ -13,7 +13,6 @@
     <th>部门</th>
     <th>通知类型</th>
     <th>通知状态</th>
-    <th>发布状态</th>
     <th>操作</th>
   </tr>
 
@@ -22,9 +21,7 @@
       <td><%= link_to "#{f.title}", notice_path(f) %></td>
       <td><%= f.notice_item.department %></td>
       <td><%= f.class_type %></td>
-      <td><%= f.notice_state %></td>
-      <td><%= %></td>
-      <%#= link_to("#{book.book_state}", book_update_books_path(:id => book.id), method: :post , :class => "btn btn-xs btn-default") %>
+      <td><%= link_to "#{f.notice_state}", notice_update_notices_path(f), method: :post , :class => "btn btn-xs btn-default" %></td>
       <td>
         <%= link_to "编辑", edit_notice_path(f) %>
         <%= link_to "删除", notice_path(f),
