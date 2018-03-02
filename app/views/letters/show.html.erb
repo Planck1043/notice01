@@ -1,19 +1,18 @@
-<h1 class="text-center"> 站内信 show </h1>
+<div class="col-md-4 col-md-offset-4 text-center">
+  <h1> 站内信 show </h1>
 
-<hr>
+  <hr>
 
-<h3 class="text-center"> <%= @letter.letter_text.title %> </h1>
-
-
-<div class="center">
-  <div class="col-md-4 col-md-offset-4 text-center">
+  <h3> <%= @letter.letter_text.title %> </h1>
+  <p>
     <%= @letter.letter_text.text %>
-    <p>
-      发送者: <%= @letter.sender.try(:name) %>
-    </p>
+  </p>
 
-    <p>
-      接收者: <%= @letter.recer.name %>
-    </p>
-  </div>
+  <p>
+    发送者: <%= @letter.sender.try(:name) %>
+  </p>
+
+  <p>
+    接收者: <%= @letter.recer.name %>
+  </p>
 </div>

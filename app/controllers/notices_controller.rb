@@ -43,6 +43,22 @@ class NoticesController < ApplicationController
     redirect_to notices_path
   end
 
+  def notice_update
+
+  end
+
+  def method_name
+    @book = Book.find(params[:id])
+    if @book.book_state == "上架"
+      @book.update(book_state: "下架")
+      flash[:error] = "下架成功"
+    else
+      @book.update(book_state: "上架")
+      flash[:error] = "上架成功"
+    end
+    redirect_to :back
+  end
+
   private
 
   def notice_params

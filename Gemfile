@@ -41,7 +41,7 @@ gem 'will_paginate-bootstrap'
 gem 'rest-client'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'ckeditor'
+gem 'ckeditor', '~> 4.1.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,1 +1,22 @@
-<h1>员工信息</h1>
+<div class="col-md-4 col-md-offset-4 text-center">
+  <h1>员工信息</h1>
+
+  <hr>
+
+  <h3><%= @user["name"] %></h1>
+  <p>
+  编号: <%= @user["coding"] %>
+  </p>
+
+  <p>
+  部门: <%= @user["department"]["name"] %>
+  </p>
+
+  <p>
+  角色: <%= @user["role"] %>
+  </p>
+
+  <p>
+  权限: <%= @user["permissions"][0]["name"] %>
+  </p>
+</div>

@@ -4,11 +4,13 @@
   <tr class="text-info">
     <th>编号</th>
     <th>姓名</th>
+    <th>部门</th>
   </tr>
   <% @users.each do |f| %>
     <tr>
       <td><%= f["coding"] %></td>
-      <td><%= link_to "f["name"]", "#" %></td>
+      <td><%= link_to "#{f["name"]}", user_path(f["id"]) %></td>
+      <td><%= f["department"]["name"] %></td>
     </tr>
   <% end %>
 </table>

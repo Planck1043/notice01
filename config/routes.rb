@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   resources :notices do
     resources :posts
+    collection do
+      post :notice_update
+    end
   end
 
   resources :censors do
