@@ -5,6 +5,16 @@ class LetterTextsController < ApplicationController
     # users = RestClient.get 'http://192.168.1.251:3000/api/v1/users/1', {accept: :json}
     # k = JSON.parse(users)
     # @u = k["user"]
+    users = RestClient.get 'http://192.168.1.251:3000/api/v1/users'
+    # 解析为 JSON 格式
+    @users = JSON.parse(users)["user"]
+
+    # user_id = params[:id].to_i
+    # user = RestClient.get("http://192.168.1.251:3000/api/v1/users/#{user_id}")
+    # @user = JSON.parse(user)["user"]
+    user = RestClient.get 'http://192.168.1.251:3000/api/v1/users'
+    # 解析为 JSON 格式
+    @user = JSON.parse(users)["user"]
   end
 
   def create

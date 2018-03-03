@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :posts
     collection do
       post :notice_update
+      post :post_update
     end
   end
 
@@ -18,6 +19,11 @@ Rails.application.routes.draw do
 
 
   resources :letters
-  resources :letter_texts
+  resources :letter_texts do
+    collection do
+      get :rec_api
+      get :send_api
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -45,6 +45,7 @@ class NoticesController < ApplicationController
 
   def notice_update
     @notice = Notice.find(params[:format])
+
     if @notice.notice_state == "审核通过"
       @notice.update(notice_state: "准备发布")
     elsif @notice.notice_state == "准备发布"
@@ -52,6 +53,19 @@ class NoticesController < ApplicationController
     elsif @notice.notice_state == "已发布"
       @notice.update(notice_state: "下架")
     end
+
+    redirect_to notices_path
+  end
+
+  def post_update
+    @notice = Notice.find(params[:format])
+
+    if @notice.post_state == "评论开启"
+      @notice.update(post_state: "评论关闭")
+    else @notice.post_state == "评论关闭"
+      @notice.update(post_state: "评论开启")
+    end
+
     redirect_to notices_path
   end
 

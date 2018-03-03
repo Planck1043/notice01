@@ -8,13 +8,13 @@
     <p>
       <%= f.label "收件人" %>
       <!-- 用户.多选框 -->
-      <%= select_tag 'rec_id[]', options_from_collection_for_select(User.all, :id, :name), class: "form-control", multiple: "multiple"%>
+      <%= select_tag 'rec_id[]', options_for_select(@users.collect{|a| [ a["name"], a["id"] ]}), class: "form-control", multiple: "multiple"%>
     </p>
 
     <p>
       <%= f.label "发件人" %>
       <!-- 用户.单选框 -->
-      <%= select_tag :send_id, options_for_select(User.all.collect{|a| [a.name, a.id]}), class: "form-control"%>
+      <%= select_tag 'send_id[]', options_for_select(@users.collect{|a| [ a["name"], a["id"] ]}), class: "form-control"%>
     </p>
 
     <p>

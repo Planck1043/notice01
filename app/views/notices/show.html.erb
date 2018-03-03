@@ -16,27 +16,31 @@
     <%= link_to "返回", notices_path %>
   </p>
 
-  <p>
-    <%= link_to "评论", new_notice_post_path(@notice) %>
-  </p>
+  <% if @notice.post_state == "评论开启" %>
+    <% if @notice.notice_state == "已发布" %>
+    <h2>所有留言</h2>
 
-  <h2>所有评论</h2>
+    <hr>
 
-  <hr>
-
-  <table class="table table-striped">
-  <% if @notice.notice_state == "已发布" %>
-    <% @posts.each do |post| %>
     <p>
-      <%= post.text %>
-      <%= link_to "删除", notice_post_path(post),
-          method: :delete, data: { confirm: "确认删除？" } %>
+      <%= link_to "留言", new_notice_post_path(@notice) %>
     </p>
-    <% end %>
-  <% end %>
-  </table>
 
-  <div class="text-center">
-    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-  </div>
+      <% @posts.each do |post| %>
+      <p>
+        <%= post.text %>
+        <%= link_to "删除", notice_post_path(post),
+            method: :delete, data: { confirm: "确认删除？" } %>
+      </p>
+      <% end %>
+    <% end %>
+
+    <div class="text-center">
+      <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+    </div>
+  <% else%>
+    <p>
+    <h3>留言关闭</h3>
+    </p>
+  <% end %>
 </div>
