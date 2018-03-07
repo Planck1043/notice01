@@ -9,10 +9,10 @@
   </p>
 
   <p>
-    发送者: <%= @letter.sender.try(:name) %>
+    发送者: <%= user_show_api(@letter.sender_id)["name"] %>
   </p>
 
   <p>
-    接收者: <%= @letter.recer.name %>
+    接收者: <%= user_show_api(@letter.recever_id)["name"] %>
   </p>
 </div>

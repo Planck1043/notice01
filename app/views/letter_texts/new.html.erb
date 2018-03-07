@@ -14,7 +14,7 @@
     <p>
       <%= f.label "发件人" %>
       <!-- 用户.单选框 -->
-      <%= select_tag 'send_id[]', options_for_select(@users.collect{|a| [ a["name"], a["id"] ]}), class: "form-control"%>
+      <%= select_tag 'sender_id[]', options_for_select(@users.collect{|a| [ a["name"], a["id"] ]}), class: "form-control"%>
     </p>
 
     <p>

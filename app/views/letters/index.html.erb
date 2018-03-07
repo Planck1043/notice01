@@ -14,8 +14,8 @@
   <% @letters.each do |letter| %>
     <tr>
       <td><%= link_to "#{letter.letter_text.title}", letter_path(letter) %></td>
-      <td><%= letter.sender.try(:name) %></td>
-      <td><%= letter.recer.name %></td>
+      <td><%= user_show_api(letter.sender_id)["name"] %></td>
+      <td><%= user_show_api(letter.recever_id)["name"] %></td>
       <td>
         <%= link_to "删除", letter_path(letter),
             method: :delete, data: { confirm: "确认删除？" } %>

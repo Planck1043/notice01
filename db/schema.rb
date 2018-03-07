@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302071215) do
+ActiveRecord::Schema.define(version: 20180305043251) do
 
   create_table "censors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "text"
@@ -31,12 +31,8 @@ ActiveRecord::Schema.define(version: 20180302071215) do
     t.string "text_see"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rec_id"
-    t.integer "send_id"
-    t.bigint "sender_id"
-    t.bigint "recever_id"
-    t.index ["recever_id"], name: "index_letters_on_recever_id"
-    t.index ["sender_id"], name: "index_letters_on_sender_id"
+    t.integer "recever_id"
+    t.integer "sender_id"
   end
 
   create_table "notice_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,18 +59,6 @@ ActiveRecord::Schema.define(version: 20180302071215) do
     t.integer "notice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "staff_id"
-    t.string "coding"
-    t.string "name"
-    t.string "department"
-    t.string "role"
-    t.integer "user_right"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["staff_id"], name: "index_users_on_staff_id"
   end
 
 end

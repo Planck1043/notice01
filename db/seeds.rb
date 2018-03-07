@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+notice_items = NoticeItem.create([
+  {
+    department: "技术部"
+  },
+  {
+    department: "市场部"
+  },
+  {
+    department: "人事部"
+  },
+  {
+    department: "财务部"
+  },
+  {
+    department: "运营部"
+  }
+])
