@@ -5,13 +5,6 @@ class LettersController < ApplicationController
 
   def show
     @letter = Letter.find(params[:id])
-    recever_id = @letter.recever_id
-    sender_id = @letter.sender_id
-
-    recever = RestClient.get("http://192.168.1.242:3333/api/v1/users/#{recever_id}")
-    sender = RestClient.get("http://192.168.1.242:3333/api/v1/users/#{sender_id}")
-    @recever = JSON.parse(recever)["user"]
-    @sender = JSON.parse(sender)["user"]
   end
 
   def destroy
